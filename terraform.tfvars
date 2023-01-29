@@ -1,0 +1,21 @@
+//-----------------------------------------------------------------------------
+// terraform.tfvars - contains the variable values you can directly edit to
+// modify the provisioning details
+//-----------------------------------------------------------------------------
+
+project_id = "" # YOUR PROJECT ID
+
+gcp_region = "" # REGION FOR CLOUD FUNCTION AND BUCKET
+
+service_account = "" # SERVICE ACCOUNT NAME
+
+bucket_name = "" # BACKEND BUCKET NAME
+
+load_balancer = "" # LOAD BALANCER NAME
+
+default_domain = "default.example.com" # A DEFAULT DOMAIN REQUIRED TO CREATE FIRSTLY THE HTTPS TARGET PROXY
+
+domain_list = [                 # YOUR DOMAIN LIST
+    "domain1.example.com",
+    "domain2.example.com"
+]

@@ -74,6 +74,8 @@ gcloud services enable compute.googleapis.com logging.googleapis.com cloudfuncti
 
 ### Execute Terraform
 
+Rename *terraform.tfvars.template* to *terraform.tfvars* and enter the required values, then launch Terraform:
+
 ```
 terraform init
 terraform plan -out plan.out

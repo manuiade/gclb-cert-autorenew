@@ -86,3 +86,19 @@ terraform apply plan.out
 
 
 ### Try to add new domain to the domain_list variable, relaunch terraform and wait for certificates to be rotated.
+
+
+## Cleanup
+
+### TF resources
+```
+terraform destroy
+```
+
+### Other resources
+
+Note that the certificates are created by the Cloud Functions, thus you have to delete them manually:
+
+```
+gcloud compute ssl-certificates delete <CERT_NAME>
+```

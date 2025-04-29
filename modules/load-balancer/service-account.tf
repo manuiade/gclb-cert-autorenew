@@ -5,7 +5,7 @@
 
 // Dedicated service account for certificate rotation (used by CF and Scheduler)
 resource "google_service_account" "cert_rotator_sa" {
-  account_id = var.service_account
+  account_id   = var.service_account
   display_name = "Dedicated Service Account for manage certificate rotation"
   project      = var.project_id
 }

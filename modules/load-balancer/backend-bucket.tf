@@ -10,7 +10,7 @@ resource "google_storage_bucket" "backend_bucket" {
   project                     = var.project_id
   storage_class               = "STANDARD"
   uniform_bucket_level_access = true
-  force_destroy = true
+  force_destroy               = true
 
   website {
     main_page_suffix = "backend-response.png"
@@ -28,8 +28,8 @@ resource "google_storage_bucket_object" "bucket_object" {
 // Make bucket public
 resource "google_storage_bucket_iam_member" "bucket_public" {
   bucket = google_storage_bucket.backend_bucket.name
-  role     = "roles/storage.objectViewer"
-  member   = "allUsers"
+  role   = "roles/storage.objectViewer"
+  member = "allUsers"
 }
 
 // Creates the backend bucket

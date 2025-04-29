@@ -15,10 +15,10 @@ resource "google_compute_managed_ssl_certificate" "default_ssl_cert" {
 
 // Create the bucket hosting the Cloud Function source code for SSL rotation
 resource "google_storage_bucket" "source_code_bucket" {
-  name          = "${var.project_id}-ssl-rot-bucket"
-  location      = "EU"
-  force_destroy = true
-  project       = var.project_id
+  name                        = "${var.project_id}-ssl-rot-bucket"
+  location                    = "EU"
+  force_destroy               = true
+  project                     = var.project_id
   storage_class               = "STANDARD"
   uniform_bucket_level_access = true
 }
@@ -59,11 +59,11 @@ resource "google_cloudfunctions_function" "cert_rotator_function" {
 
 // Grant SA invoke permission to cloud function
 resource "google_cloudfunctions_function_iam_member" "cert_rotator_function_invoke" {
-  project = var.project_id
-  region = var.gcp_region
+  project        = var.project_id
+  region         = var.gcp_region
   cloud_function = google_cloudfunctions_function.cert_rotator_function.name
-  role = "roles/cloudfunctions.invoker"
-  member = format("serviceAccount:%s", google_service_account.cert_rotator_sa.email)
+  role           = "roles/cloudfunctions.invoker"
+  member         = format("serviceAccount:%s", google_service_account.cert_rotator_sa.email)
 }
 
 // Creates/update the Cloud Scheduler Job which periodically calls the Function for the certificate rotation

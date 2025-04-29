@@ -35,5 +35,5 @@ variable "default_domain" {
 variable "domain_list" {
   type        = list(string)
   description = "Domain list"
-  default = []
+  default     = []
 }

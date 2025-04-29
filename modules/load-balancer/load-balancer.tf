@@ -6,7 +6,7 @@
 
 // Creates a global external IPV4 address
 resource "google_compute_global_address" "global_ipv4" {
-  name = var.load_balancer
+  name       = var.load_balancer
   ip_version = "IPV4"
   purpose    = ""
   project    = var.project_id
